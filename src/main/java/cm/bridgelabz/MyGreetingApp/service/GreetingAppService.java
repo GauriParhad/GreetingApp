@@ -5,6 +5,8 @@ import cm.bridgelabz.MyGreetingApp.model.User;
 import cm.bridgelabz.MyGreetingApp.repository.GreetingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.Optional;
+
 public class GreetingAppService {
     @Autowired
     private GreetingRepository greetingRepository;
@@ -24,5 +26,10 @@ public class GreetingAppService {
     private class ModelMapper {
         public void map(UserDto userDto, User user) {
         }
+    }
+
+    public User getGreetById(int id) {
+        Optional<User> greetById = greetingRepository.findById(id);
+        return greetById.orElse(null);
     }
 }
