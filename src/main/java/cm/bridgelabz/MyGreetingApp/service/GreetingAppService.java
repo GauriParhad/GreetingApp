@@ -37,4 +37,15 @@ public class GreetingAppService {
     public List<User> getAllGreet() {
         return greetingRepository.findAll();
     }
+
+
+    public String deleteGreet(int id) {
+        Optional<User> optionalUser = greetingRepository.findById(id);
+        if (optionalUser.isPresent()) {
+            greetingRepository.delete(optionalUser.get());
+            return "Record deleted successfully";
+        }
+        return "Record not available";
+    }
+
 }

@@ -35,5 +35,11 @@ public class GreetingController {
     @GetMapping("/get_all_greetings")
     public List<User> findAllGreeting() {
         return greetingAppService.getAllGreet();
+    }
+
+    @DeleteMapping("/delete_greet")
+    public String deleteGreet(@RequestParam int id) {
+        return greetingAppService.deleteGreet(id);
+    }
 
 }
