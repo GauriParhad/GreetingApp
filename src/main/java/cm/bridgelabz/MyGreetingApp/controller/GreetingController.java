@@ -1,6 +1,7 @@
 package cm.bridgelabz.MyGreetingApp.controller;
 
 
+import cm.bridgelabz.MyGreetingApp.dto.UserDto;
 import cm.bridgelabz.MyGreetingApp.service.GreetingAppService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,7 +24,7 @@ public class GreetingController {
 
     @GetMapping("/customMessage")
     public String getCustomMessage(@RequestBody UserDto userDto) {
-        return greetingService.getCustomMessage(userDto);
+        return greetingAppService.getCustomMessage(userDto);
     }
 
 }
