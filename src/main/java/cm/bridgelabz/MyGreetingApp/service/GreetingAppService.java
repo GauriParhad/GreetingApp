@@ -5,6 +5,7 @@ import cm.bridgelabz.MyGreetingApp.model.User;
 import cm.bridgelabz.MyGreetingApp.repository.GreetingRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.List;
 import java.util.Optional;
 
 public class GreetingAppService {
@@ -31,5 +32,9 @@ public class GreetingAppService {
     public User getGreetById(int id) {
         Optional<User> greetById = greetingRepository.findById(id);
         return greetById.orElse(null);
+    }
+
+    public List<User> getAllGreet() {
+        return greetingRepository.findAll();
     }
 }
